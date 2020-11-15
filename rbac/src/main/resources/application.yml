@@ -1,0 +1,28 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: frameApplication
+
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/static/
+  thymeleaf:
+    prefix:
+      classpath: /templates   # 访问template下的html文件需要配置模板，映射
+    cache: false # 开发时关闭缓存,不然没法看到实时页面
+
+mybatis:
+  mapper-locations: classpath*:mybatis/mapper/**/*.xml
+  #type-aliases-package: com.hjming.layui.**.domain
+  type-aliases-package: cn.deep.**.domain
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+devtools:
+  livereload:
+    enabled: true #是否支持livereload
+    port: 35729
+  restart:
+    enabled: true #是否支持热部署
